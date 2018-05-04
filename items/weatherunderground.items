@@ -11,19 +11,19 @@ Number currentPressure "Pressione [%.1f hPa]" <pressure> (influxdb) {channel="we
 
 String forecastTodayCondition "Previsioni oggi [MAP(it.map):%s]" {channel="weatherunderground:weather:local:forecastToday#conditions"}
 Image iconforecastTodayCondition "Icon" {channel="weatherunderground:weather:local:current#icon"}
-Number forecastTodayMaxTemperature "Previsione temperatura massima oggi [%.1f °C]"  <temperature> {channel="weatherunderground:weather:local:forecastToday#maxTemperature"}
-Number forecastTodayMinTemperature "Previsione temperatura massima oggi [%.1f °C]" <temperature> {channel="weatherunderground:weather:local:forecastToday#minTemperature"}
-Number TodayProbaPrecipitation "Previsione probabilità di pioggia oggi [%.0f %%]" <rain> {channel="weatherunderground:weather:local:forecastToday#probaPrecipitation"}
+Number forecastTodayMaxTemperature "Massima oggi [%.1f °C]"  <temperature> {channel="weatherunderground:weather:local:forecastToday#maxTemperature"}
+Number forecastTodayMinTemperature "Massima oggi [%.1f °C]" <temperature> {channel="weatherunderground:weather:local:forecastToday#minTemperature"}
+Number TodayProbaPrecipitation "Probabilità di pioggia oggi [%.0f %%]" <rain> {channel="weatherunderground:weather:local:forecastToday#probaPrecipitation"}
 Number TodayPrecipitation "Precipitazioni oggi [%.1f mm]" <rain> {channel="weatherunderground:weather:local:forecastToday#precipitationDay"}
 
 
 DateTime forecastTimeTomorrow "Previsioni del [%1$td.%1$tm.%1$tY %1$tH:%1$tM]" <clock>  {channel="weatherunderground:weather:local:forecastTomorrow#forecastTime"}
 String forecastTomorrowCondition "Condizione prevista domani [MAP(it.map):%s]" {channel="weatherunderground:weather:local:forecastTomorrow#conditions"}
 Image iconforecastTomorrowCondition "Icon" {channel="weatherunderground:weather:local:forecastTomorrow#icon"}
-Number forecastTomorrowMaxTemperature "Previsione temperatura massima [%.1f °C]" <temperature> {channel="weatherunderground:weather:local:forecastTomorrow#maxTemperature"}
-Number forecastTomorrowMinTemperature "Previsione temperatura massima [%.1f °C]" <temperature> {channel="weatherunderground:weather:local:forecastTomorrow#minTemperature"}
-Number forecastTomorrowProbaPrecipitation "Previsione probabilità di pioggia [%.0f %%]" <rain> {channel="weatherunderground:weather:local:forecastTomorrow#probaPrecipitation"}
-Number forecastTomorrowPrecipitation "Previsione precipitazioni [%.1f mm]" <rain> {channel="weatherunderground:weather:local:forecastTomorrow#precipitationDay"}
+Number forecastTomorrowMaxTemperature "Massima domani[%.1f °C]" <temperature> {channel="weatherunderground:weather:local:forecastTomorrow#maxTemperature"}
+Number forecastTomorrowMinTemperature "Minima domani[%.1f °C]" <temperature> {channel="weatherunderground:weather:local:forecastTomorrow#minTemperature"}
+Number forecastTomorrowProbaPrecipitation "Probabilità di pioggia domani[%.0f %%]" <rain> {channel="weatherunderground:weather:local:forecastTomorrow#probaPrecipitation"}
+Number forecastTomorrowPrecipitation "Previsione precipitazioni domani[%.1f mm]" <rain> {channel="weatherunderground:weather:local:forecastTomorrow#precipitationDay"}
 
 
 

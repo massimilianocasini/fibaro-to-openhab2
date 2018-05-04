@@ -7,6 +7,6 @@ Switch prodino0_out1 "Key Antifurto"    <switch>  {mqtt=">[broker1:/KMP/ProDinoW
 Switch prodino0_out2 "Out 2"                {mqtt=">[broker1:/KMP/ProDinoWiFi/Cmd:command:ON:rel-1-1], >[broker1:/KMP/ProDinoWiFi/Cmd:command:OFF:rel-1-0]"}
 Switch prodino0_out3 "Out 3"                {mqtt=">[broker1:/KMP/ProDinoWiFi/Cmd:command:ON:rel-2-1], >[broker1:/KMP/ProDinoWiFi/Cmd:command:OFF:rel-2-0]"}
 Switch prodino0_out4 "Out 4"                {mqtt=">[broker1:/KMP/ProDinoWiFi/Cmd:command:ON:rel-3-1], >[broker1:/KMP/ProDinoWiFi/Cmd:command:OFF:rel-3-0]"}
-Number prodino_temp "Temperatura P [%.1f]"  <temperature> (influxdb)  {mqtt="<[broker1:/KMP/ProDinoWiFi/Info/dhtt:state:default]"}
-Number proxy_prodino_temp "Temperatura [%.1f]"  <temperature> (influxdb)
-Number prodino_umid "Umidità P [%.1f]"      <humidity> (influxdb)  {mqtt="<[broker1:/KMP/ProDinoWiFi/Info/dhth:state:default]"}
+Number prodino_temp "Temperatura P [%.1f °C]"  <temperature> (influxdb,avgTemperatura)  {mqtt="<[broker1:/KMP/ProDinoWiFi/Info/dhtt:state:default]"}
+Number proxy_prodino_temp "Temperatura [%.1f °C]"  <temperature> (influxdb,avgTemperatura)
+Number prodino_umid "Umidità [%.1f]"      <humidity> (influxdb)  {mqtt="<[broker1:/KMP/ProDinoWiFi/Info/dhth:state:default]"}
