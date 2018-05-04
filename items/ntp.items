@@ -1,0 +1,4 @@
+//DateTime Day  "Data [%1$tA, %1$td.%1$tm.%1$tY %1$tH:%1$tM]"  { channel="ntp:ntp:local:dateTime" }
+//DateTime Day  "[MAP(it.map):%1$tA],[%1$td.%1$tm.%1$tY %1$tH:%1$tM]"  { channel="ntp:ntp:local:dateTime" }
+DateTime Day  "[%s]"  { channel="ntp:ntp:local:string" }
+DateTime Date "" { channel="ntp:ntp:local:dateTime" }

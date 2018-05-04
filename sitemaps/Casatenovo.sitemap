@@ -1,0 +1,98 @@
+sitemap Casatenovo label="Benvenuto a Casa" 
+
+{ 
+	
+	
+	Frame label=Oggi
+	{
+	Text item=Day icon="calendar"
+	Text item=Date icon="calendar"
+	}
+
+	 Frame label="Temperatura interna" 
+	//{
+		//	Text label=Studio icon=office
+			{
+				Text item=MotionSensor1_PT_sensorTemperature icon="temperature"
+				Text item=prodino_temp icon="temperature" 
+				Text item=prodino_umid icon="humidity"
+				}
+			
+	//}
+	
+	Frame label="Sistema di sicurezza"
+	{
+	Text item=prodino0_in1
+	Switch item=prodino0_out1
+	}
+	// Frame label="Prodino"
+	// {
+	// Text item=prodino0_in1
+	// Text item=prodino0_in2
+	// Text item=prodino0_in3
+	// Text item=prodino0_in4
+	// Switch item=prodino0_out1
+	// Switch item=prodino0_out2
+	// Switch item=prodino0_out3
+	// Switch item=prodino0_out4
+	// Text item=prodino_temp
+	// Text item=prodino_umid
+	// }
+	Frame label="Energia"
+	{
+	Text item=EnergyDSW1_PT_meter_current icon="battery"
+	Text item=EnergyDSW1_PT_meter_kwh
+	Text item=EnergyDSW1_PT_meter_voltage
+	Text item=EnergyDSW1_PT_meter_watts
+	Text item=EnergyDSW1_PT_powerfactor
+	Text item=EnergyDSW1_PT_sensor_power
+	Switch item=EnergyDSW1_PT_switch_binary
+	}
+	Frame label="Luminosità"
+	{
+	Text item=MotionSensor1_PT_sensorLuminance icon="rgb"
+	}
+	
+	Frame label="Rilevatore movimento"
+	{
+	Text item=MotionSensor1_PT_alarmMotion icon="motion" 
+	}
+
+	Frame label="Prese"
+	{
+	Switch item=WallPlug1_PT_switchBinary icon="light" mappings=[ON="ON", OFF="OFF"]
+	Text item=WallPlug1_PT_meterKwh icon="energy"
+	Text item=WallPlug1_PT_sensorPower icon="energy"
+	}
+
+	Frame label="Batterie"
+	{
+	Text item=MotionSensor1_PT_sensorBattery icon="battery"
+	}
+
+	Frame label="Tempo"
+	{
+		Text item=observationTime
+		Text item=currentCondition
+		Text item=currentTemperature
+		Text item=currentFeelTemp
+		Text item=currentRelativeHumidity
+		Text item=currentPressure
+		Text item=TodayProbaPrecipitation
+		Text item=forecastTodayCondition
+		Text item=forecastTodayMaxTemperature
+	// Image item=currentCondition
+	
+		Text item=observationLocation
+		Text item=station
+	
+			Text label="Previsioni DOMANI"
+			{
+			Text item=forecastTimeTomorrow
+			Text item=forecastTomorrowCondition
+			Text item=forecastTomorrowPrecipitation
+			Text item=forecastTomorrowMaxTemperature
+			Text item=forecastTomorrowMinTemperature
+			}
+	}
+}

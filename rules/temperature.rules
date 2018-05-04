@@ -1,0 +1,6 @@
+rule "OffSet DHTT"
+when
+    Item prodino_temp received update
+then
+    proxy_prodino_temp.sendCommand((prodino_temp.state as DecimalType) -1.0)
+end

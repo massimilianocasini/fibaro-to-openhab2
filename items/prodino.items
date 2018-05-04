@@ -1,0 +1,12 @@
+Switch prodino0_in1 "Stato Antifurto [MAP(prodino_2.map):%s]" <alarm>	{mqtt="<[broker1:/KMP/ProDinoWiFi/nInfo:state:MAP(prodino.map):optoIn-0.*]"}
+Switch prodino0_in2 "In 2 Status [%s]" 	    {mqtt="<[broker1:/KMP/ProDinoWiFi/nInfo:state:MAP(prodino.map):optoIn-1.*]"}
+Switch prodino0_in3 "In 3 Status [%s]" 	    {mqtt="<[broker1:/KMP/ProDinoWiFi/nInfo:state:MAP(prodino.map):optoIn-2.*]"}
+Switch prodino0_in4 "In 4 Status [%s]"  	{mqtt="<[broker1:/KMP/ProDinoWiFi/nInfo:state:MAP(prodino.map):optoIn-3.*]"}
+// Switch prodino0_out1 "Key Antifurto"    <switch>  {mqtt=">[broker1:/KMP/ProDinoWiFi/Cmd:command:ON:rel-0-1], >[broker1:/KMP/ProDinoWiFi/Cmd:command:OFF:rel-0-0], <[broker1:/KMP/ProDinoWiFi/nInfo:state:MAP(prodino.map):optoIn-0.*]"}
+Switch prodino0_out1 "Key Antifurto"    <switch>  {mqtt=">[broker1:/KMP/ProDinoWiFi/Cmd:command:ON:rel-0-1], >[broker1:/KMP/ProDinoWiFi/Cmd:command:OFF:rel-0-0]"}
+Switch prodino0_out2 "Out 2"                {mqtt=">[broker1:/KMP/ProDinoWiFi/Cmd:command:ON:rel-1-1], >[broker1:/KMP/ProDinoWiFi/Cmd:command:OFF:rel-1-0]"}
+Switch prodino0_out3 "Out 3"                {mqtt=">[broker1:/KMP/ProDinoWiFi/Cmd:command:ON:rel-2-1], >[broker1:/KMP/ProDinoWiFi/Cmd:command:OFF:rel-2-0]"}
+Switch prodino0_out4 "Out 4"                {mqtt=">[broker1:/KMP/ProDinoWiFi/Cmd:command:ON:rel-3-1], >[broker1:/KMP/ProDinoWiFi/Cmd:command:OFF:rel-3-0]"}
+Number prodino_temp "Temperatura P [%.1f]"  <temperature> (influxdb)  {mqtt="<[broker1:/KMP/ProDinoWiFi/Info/dhtt:state:default]"}
+Number proxy_prodino_temp "Temperatura [%.1f]"  <temperature> (influxdb)
+Number prodino_umid "Umidità P [%.1f]"      <humidity> (influxdb)  {mqtt="<[broker1:/KMP/ProDinoWiFi/Info/dhth:state:default]"}

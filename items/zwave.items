@@ -1,0 +1,18 @@
+Group   influxdb
+
+Number WallPlug1_PT_meterKwh "Wall Plug potenza totale [%.1f KWh]" <energy> (influxdb)      {channel="zwave:device:2825f7e5:node3:meter_kwh"}
+Number WallPlug1_PT_sensorPower "Wall Plug sensor power [%.1f W]" <energy> (influxdb)       {channel="zwave:device:2825f7e5:node3:sensor_power"}
+Switch WallPlug1_PT_switchBinary "Presa" <switch>                                           {channel="zwave:device:2825f7e5:node3:switch_binary"}
+
+Number MotionSensor1_PT_sensorTemperature "Temperatura M[%.1f °C]" <temperature> (influxdb)  {channel="zwave:device:2825f7e5:node10:sensor_temperature"}
+Number MotionSensor1_PT_sensorLuminance "Luminosità [%.1f]"      <rgb> (influxdb)           {channel="zwave:device:2825f7e5:node10:sensor_luminance"}
+Switch MotionSensor1_PT_alarmMotion "Rilevatore [MAP(zwave_motion.map):%s]" <motion>        {channel="zwave:device:2825f7e5:node10:alarm_motion"}
+Number MotionSensor1_PT_sensorBattery "Stato batteria [%d %%]" <battery> {channel="zwave:device:2825f7e5:node10:battery-level"}
+
+Switch EnergyDSW1_PT_switch_binary "Switch esterno" (influxdb)          {channel="zwave:device:2825f7e5:node11:switch_binary"}
+Number EnergyDSW1_PT_sensor_power "Sensore di potenza [%.1f]" (influxdb) {channel="zwave:device:2825f7e5:node11:sensor_power"}
+Number EnergyDSW1_PT_meter_voltage "Tensione [%.1f V]" (influxdb) {channel="zwave:device:2825f7e5:node11:meter_voltage"}
+Number EnergyDSW1_PT_powerfactor "Sfasamento [%.1f ]" (influxdb) {channel="zwave:device:2825f7e5:node11:meter_powerfactor"}
+Number EnergyDSW1_PT_meter_current "Corrente assorbita [%.1f A]" (influxdb) {channel="zwave:device:2825f7e5:node11:meter_current"}
+Number EnergyDSW1_PT_meter_watts "Potenza istantanea [%.1f W]" (influxdb) {channel="zwave:device:2825f7e5:node11:meter_watts"}
+Number EnergyDSW1_PT_meter_kwh "Energia consumata [%.1f KWh]" (influxdb)        {channel="zwave:device:2825f7e5:node11:meter_kwh"}
