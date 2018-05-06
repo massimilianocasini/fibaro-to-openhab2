@@ -3,10 +3,13 @@ when
     Item prodino0_in1 changed from OFF to ON
 then
     sendCommand(prodino0_out1, ON)
+    sendTelegram("bot1", "Antifurto INSerito!")
 end
+
 rule "allinea stato allarme OFF"
 when
     Item prodino0_in1 changed from ON to OFF
 then
     sendCommand(prodino0_out1, OFF)
+    sendTelegram("bot1", "Antifurto DISinserito!")
 end

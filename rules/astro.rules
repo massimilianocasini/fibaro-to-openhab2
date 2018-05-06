@@ -2,13 +2,26 @@ rule "Accendi luci 30min prima del tramonto e spegni al sorgere"
 when
     Item SunElevation changed
 then
-    if(now.getHourOfDay > 12 && SunElevation.state < 5 && FGS222_13_1.state != ON)
+    if(now.getHourOfDay > 12 && SunElevation.state < 5 && FGS222_13_switch_binary1.state != ON)
     {
-       FGS222_13_1.sendCommand(ON)
+       FGS222_13_switch_binary1.sendCommand(ON)
+       sendTelegram("bot1", "Luce portone ACCESA!")
+       logInfo("Luce accesa")
     }
-    if(now.getHourOfDay < 12 && SunElevation.state > 0 && FGS222_13_1.state != OFF)
+    if(now.getHourOfDay < 12 && SunElevation.state > 0 && FGS222_13_switch_binary1.state != OFF)
     {
-       FGS222_13_1.sendCommand(OFF)
+       FGS222_13_switch_binary1.sendCommand(OFF)
+       sendTelegram("bot1", "Luce portone SPENTA!")
+    }
+    if(now.getHourOfDay > 12 && SunElevation.state < 5 && FGS222_19_switch_binary2.state != ON)
+    {
+       FGS222_19_switch_binary2.sendCommand(ON)
+       sendTelegram("bot1", "Alimentazione lumetti ON!")
+    }
+    if(now.getHourOfDay < 12 && SunElevation.state > 0 && FGS222_19_switch_binary2.state != OFF)
+    {
+       FGS222_19_switch_binary2.sendCommand(OFF)
+       sendTelegram("bot1", "Alimentazione lumetti OFF!")
     }
 end
 
@@ -21,3 +34,4 @@ then
        FGS222_15_2.sendCommand(ON)
     }
 end 
+

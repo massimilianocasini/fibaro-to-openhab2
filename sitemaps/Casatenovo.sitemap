@@ -13,8 +13,8 @@ sitemap Casatenovo label="Benvenuto a Casa"
 		Text item=avgTemperatura valuecolor=[>25="orange",>15="green",>5="orange",<=5="blue"] icon="temperature"
 		Text item=prodino_umid icon="humidity"
 		Text item=FGMS001_10_sensor_luminance icon="rgb"
-		Text item=prodino0_in1
-		Switch item=prodino0_out1
+		Text item=prodino0_in1 
+		Switch item=prodino0_out1 mappings=[ON="INS", OFF="DIS"]
 		Text item=FGMS001_10_alarm_motion icon="motion"
 		Text item=WPS104_11_meter_voltage icon="energy"
 		Text item=WPS104_11_meter_watts icon="battery"
@@ -35,17 +35,16 @@ sitemap Casatenovo label="Benvenuto a Casa"
 
 		Text label="Camera Alice" icon="bedroom"
 		{
-			Switch item=FGS222_18_1 icon="light" mappings=[TOGGLE="Premi"]
-			Switch item=FGS222_18_2 icon="light" mappings=[TOGGLE="Premi"]
-			Text item=FGBS001_17_1 icon="motion"
-			Text item=FGBS001_17_3 icon="shield"
-			Text item=FGBS001_17_5 icon="temperature"
+			Switch item=FGS222_18_switch_binary1 icon="light" mappings=[TOGGLE="Premi"]
+			Switch item=FGS222_18_switch_binary2 icon="light" mappings=[TOGGLE="Premi"]
+			Text item=FGBS001_17_sensor_binary1 icon="motion"
+			Text item=FGBS001_17_sensor_binary2 icon="shield"
+			Text item=FGBS001_17_sensor_temperature3 icon="temperature"
 		}
-		Text label="Sala da pranzo" icon="livingroom"
+		Text label="Sala da pranzo" icon="player"
 		{
-			Text item=FGMS001_10_sensor_temperature icon="temperature"
-			Text item=FGMS001_10_sensor_luminance icon="rgb"
-			Text item=FGMS001_10_alarm_motion icon="motion"
+			Text item=prodino_temp
+			Text item=prodino_umid
 		}
 		Text label="Corridoio" icon="corridor"
 		{
@@ -53,7 +52,9 @@ sitemap Casatenovo label="Benvenuto a Casa"
 		}
 		Text label="Studio" icon="office"
 		{
-			Text item=FGWP102_03_sensorPower icon="energy"
+			Text item=FGMS001_10_sensor_temperature icon="temperature"
+			Text item=FGMS001_10_sensor_luminance icon="rgb"
+			Text item=FGMS001_10_alarm_motion icon="motion"
 		}
 	
 	}
@@ -65,18 +66,18 @@ sitemap Casatenovo label="Benvenuto a Casa"
 			}
 				Text label="Portone" icon="cellar"
 			{
-				Switch item=FGS222_13_1 icon="light"
-				Switch item=FGS222_13_2 icon="light"
+				Switch item=FGS222_13_switch_binary1 icon="light"
+				Switch item=FGS222_13_switch_binary2 icon="light"
 			}
 		Text label="Garage" icon="garage"
 			{
-				Switch item=FGS222_15_1 icon="blinds" mappings=[TOGGLE="Premi"]
-				Switch item=FGS222_15_2 icon="light" mappings=[TOGGLE="Premi"]
-				Text item=FGBS001_16_1 icon="blinds"
-				Text item=FGBS001_16_3 icon="motion"
-				Text item=FGBS001_16_5 icon="temperature"
+				Switch item=FGS222_15_switch_binary1 icon="blinds" mappings=[TOGGLE="Premi"]
+				Switch item=FGS222_15_switch_binary2 icon="light" mappings=[TOGGLE="Premi"]
+				Text item=FGBS001_16_sensor_binary1 icon="blinds"
+				Text item=FGBS001_16_sensor_binary2 icon="motion"
+				Text item=FGBS001_16_sensor_temperature3 icon="temperature"
 			}
-		Text label="Locale tecnico" icon="pump"
+		Text label="Locale tecnico" icon="settings"
 			{
 				Text label="Energia" icon="energy"
 				{
@@ -94,20 +95,87 @@ sitemap Casatenovo label="Benvenuto a Casa"
 
 	Frame label="Dispositivi"
 	{
-		Text label="MotionSensor" icon="parents_6_6"
+		Text label="MotionSensor" icon="cellar"
 		{
-			Text item=FGMS001_10_temp 
-			Text item=FGMS001_10_lum
+			Text item=FGMS001_10_sensor_temperature 
+			Text item=FGMS001_10_sensor_luminance
 			Text item=FGMS001_10_alarm_motion
-			Text item=FGMS001_10_bat
+			Text item=FGMS001_10_battery
 		}
 
-		Text label="WallPlug" icon="poweroutlet"
+		Text label="WallPlug" icon="cellar"
 		{
-		Text item=FGWP102_03_meterKwh icon="energy"
+			Text item=FGWP102_03_meterKwh
+			Text item=FGWP102_03_sensorPower
+			Text item=FGWP102_03_switchBinary
 		}
-	}
-
+		Text label="Energy Driven Switch C" icon="cellar"
+		{
+			Text item=WPS104_11_meter_voltage
+			Text item=WPS104_11_meter_current
+			Text item=WPS104_11_meter_kwh
+			Text item=WPS104_11_meter_watts
+			Text item=WPS104_11_powerfactor
+			Text item=WPS104_11_sensor_power
+			Switch item=WPS104_11_switch_binary
+		}
+		Text label="Double relay Switch 2x1.5kW, Portone" icon="cellar"
+		{
+			Switch item=FGS222_13_switch_binary
+			Switch item=FGS222_13_switch_binary1
+			Switch item=FGS222_13_switch_binary2
+		}
+		Text label="Double relay Switch 2x1.5kW, Garage" icon="cellar"
+		{
+			Switch item=FGS222_15_switch_binary
+			Switch item=FGS222_15_switch_binary1
+			Switch item=FGS222_15_switch_binary2
+		}
+		Text label="Double relay Switch 2x1.5kW, Camera Alice porta" icon="cellar"
+		{
+			Switch item=FGS222_18_switch_binary
+			Switch item=FGS222_18_switch_binary1
+			Switch item=FGS222_18_switch_binary2
+		}
+		Text label="Double relay Switch 2x1.5kW, Camera Alice lumetti" icon="cellar"
+		{
+			Switch item=FGS222_19_switch_binary
+			Switch item=FGS222_19_switch_binary1
+			Switch item=FGS222_19_switch_binary2
+		}
+		Text label="Universal Binary Sensor, Garage" icon="cellar"
+		{
+			Switch item=FGBS001_16_alarm_general1
+			Switch item=FGBS001_16_alarm_general2
+			Text item=FGBS001_16_scene_number
+			Text item=FGBS001_16_sensor_binary1
+			Text item=FGBS001_16_sensor_binary2
+			Text item=FGBS001_16_sensor_temperature3
+		}
+		Text label="Universal Binary Sensor, Camera Alice" icon="cellar"
+		{
+			Switch item=FGBS001_17_alarm_general1
+			Switch item=FGBS001_17_alarm_general2
+			Text item=FGBS001_17_scene_number
+			Text item=FGBS001_17_sensor_binary1
+			Text item=FGBS001_17_sensor_binary2
+			Text item=FGBS001_17_sensor_temperature3
+		}
+		Text label="Prodino WIFI MQTT, Sala da pranzo" icon="cellar"
+		{
+			Switch item=prodino0_in1
+			Switch item=prodino0_in2
+			Switch item=prodino0_in3
+			Switch item=prodino0_in4
+			Switch item=prodino0_out1
+			Switch item=prodino0_out2
+			Switch item=prodino0_out3
+			Switch item=prodino0_out4
+			Text item=prodino_temp
+			Text item=prodino_umid
+		}
+	}	
+	
 	Frame label="Che tempo che fa"
 	{
 		Text label="Oggi" icon="sun_clouds"
