@@ -1,85 +1,59 @@
 sitemap Casatenovo label="Benvenuto a Casa" 
 
 { 
-	
-	
 	Frame label=Oggi
 	{
-	Text item=Date icon="calendar"
+		Text item=Date icon="calendar"
 	}
 
-	 Frame label="Stato generale" 
+	Frame label="Stato generale" 
 	//{
 		//	Text label=Studio icon=office
-			{
-				Text item=avgTemperatura valuecolor=[>25="orange",>15="green",>5="orange",<=5="blue"] icon="temperature"
-				Text item=prodino_umid icon="humidity"
-				Text item=MotionSensor1_PT_sensorLuminance icon="rgb"
-				Text item=prodino0_in1
-				Switch item=prodino0_out1
-				Text item=MotionSensor1_PT_alarmMotion icon="motion"
-				Text item=EnergyDSW1_PT_meter_voltage icon="energy"
-				Text item=EnergyDSW1_PT_meter_watts icon="battery"
-				}
-			
-	//}
-	
-	//Frame label="Sistema di sicurezza"
-	//{
-	//Text item=prodino0_in1
-	//Switch item=prodino0_out1
-	//}
-	// Frame label="Prodino"
-	// {
-	// Text item=prodino0_in1
-	// Text item=prodino0_in2
-	// Text item=prodino0_in3
-	// Text item=prodino0_in4
-	// Switch item=prodino0_out1
-	// Switch item=prodino0_out2
-	// Switch item=prodino0_out3
-	// Switch item=prodino0_out4
-	// Text item=prodino_temp
-	// Text item=prodino_umid
-	// }
-	Text label="Energia dettaglio" icon="energy"
 	{
-	Text item=EnergyDSW1_PT_meter_current icon="battery"
-	Text item=EnergyDSW1_PT_meter_kwh
-	Text item=EnergyDSW1_PT_meter_voltage
-	Text item=EnergyDSW1_PT_meter_watts
-	Text item=EnergyDSW1_PT_powerfactor
-	Text item=EnergyDSW1_PT_sensor_power
-	Switch item=EnergyDSW1_PT_switch_binary
+		Text item=avgTemperatura valuecolor=[>25="orange",>15="green",>5="orange",<=5="blue"] icon="temperature"
+		Text item=prodino_umid icon="humidity"
+		Text item=FGMS001_10_sensor_luminance icon="rgb"
+		Text item=prodino0_in1
+		Switch item=prodino0_out1
+		Text item=FGMS001_10_alarm_motion icon="motion"
+		Text item=WPS104_11_meter_voltage icon="energy"
+		Text item=WPS104_11_meter_watts icon="battery"
 	}
+			
 		
 	Frame label="Stanze"
 	{
 		Text label="Cucina" icon="kitchen"
 		{ 
-			Text label="Frigorifero"
+			Text label="Frigorifero" 
 			{ 
-			Switch item=WallPlug1_PT_switchBinary icon="light" mappings=[ON="ON", OFF="OFF"]
-			Text item=WallPlug1_PT_meterKwh icon="energy"
-			Text item=WallPlug1_PT_sensorPower icon="energy"
+				Switch item=FGWP102_03_switchBinary icon="light" mappings=[ON="ON", OFF="OFF"]
+				Text item=FGWP102_03_meterKwh icon="energy"
+				Text item=FGWP102_03_sensorPower icon="energy"
 			}
 		}
 
 		Text label="Camera Alice" icon="bedroom"
 		{
-			Text item=WallPlug1_PT_sensorPower icon="energy"
+			Switch item=FGS222_18_1 icon="light" mappings=[TOGGLE="Premi"]
+			Switch item=FGS222_18_2 icon="light" mappings=[TOGGLE="Premi"]
+			Text item=FGBS001_17_1 icon="motion"
+			Text item=FGBS001_17_3 icon="shield"
+			Text item=FGBS001_17_5 icon="temperature"
 		}
-			Text label="Sala da pranzo" icon="livingroom"
+		Text label="Sala da pranzo" icon="livingroom"
 		{
-			Text item=WallPlug1_PT_sensorPower icon="energy"
+			Text item=FGMS001_10_sensor_temperature icon="temperature"
+			Text item=FGMS001_10_sensor_luminance icon="rgb"
+			Text item=FGMS001_10_alarm_motion icon="motion"
 		}
-			Text label="Corridoio" icon="corridor"
+		Text label="Corridoio" icon="corridor"
 		{
-			Text item=WallPlug1_PT_sensorPower icon="energy"
+			Text item=FGWP102_03_sensorPower icon="energy"
 		}
-			Text label="Studio" icon="office"
+		Text label="Studio" icon="office"
 		{
-			Text item=WallPlug1_PT_sensorPower icon="energy"
+			Text item=FGWP102_03_sensorPower icon="energy"
 		}
 	
 	}
@@ -87,19 +61,34 @@ sitemap Casatenovo label="Benvenuto a Casa"
 	{
 		Text label="Giardino" icon="garden"
 			{
-			Text item=WallPlug1_PT_sensorPower icon="energy"
+				Text item=FGWP102_03_sensorPower icon="energy"
 			}
-			Text label="Portone" icon="cellar"
+				Text label="Portone" icon="cellar"
 			{
-			Text item=WallPlug1_PT_sensorPower icon="energy"
+				Switch item=FGS222_13_1 icon="light"
+				Switch item=FGS222_13_2 icon="light"
 			}
-			Text label="Garage" icon="garage"
+		Text label="Garage" icon="garage"
 			{
-			Text item=WallPlug1_PT_sensorPower icon="energy"
+				Switch item=FGS222_15_1 icon="blinds" mappings=[TOGGLE="Premi"]
+				Switch item=FGS222_15_2 icon="light" mappings=[TOGGLE="Premi"]
+				Text item=FGBS001_16_1 icon="blinds"
+				Text item=FGBS001_16_3 icon="motion"
+				Text item=FGBS001_16_5 icon="temperature"
 			}
-			Text label="Locale tecnico" icon="pump"
+		Text label="Locale tecnico" icon="pump"
 			{
-			Text item=WallPlug1_PT_sensorPower icon="energy"
+				Text label="Energia" icon="energy"
+				{
+					Text item=WPS104_11_meter_current icon="battery"
+					Text item=WPS104_11_meter_kwh
+					Text item=WPS104_11_meter_voltage
+					Text item=WPS104_11_meter_watts
+					Text item=WPS104_11_powerfactor
+					Text item=WPS104_11_sensor_power
+					Switch item=WPS104_11_switch_binary
+				}
+	
 			}
 	}
 
@@ -107,12 +96,15 @@ sitemap Casatenovo label="Benvenuto a Casa"
 	{
 		Text label="MotionSensor" icon="parents_6_6"
 		{
-		Text item=MotionSensor1_PT_sensorBattery icon="battery"
+			Text item=FGMS001_10_temp 
+			Text item=FGMS001_10_lum
+			Text item=FGMS001_10_alarm_motion
+			Text item=FGMS001_10_bat
 		}
 
 		Text label="WallPlug" icon="poweroutlet"
 		{
-		Text item=WallPlug1_PT_meterKwh icon="energy"
+		Text item=FGWP102_03_meterKwh icon="energy"
 		}
 	}
 
@@ -141,4 +133,11 @@ sitemap Casatenovo label="Benvenuto a Casa"
 			Text item=forecastTomorrowMinTemperature
 		}
 	}
+Frame label="Astro"
+	{
+		
+			Text item=Sunrise_Time
+			Text item=Sunset_Time
+			Text item=SunElevation
+	}	
 }

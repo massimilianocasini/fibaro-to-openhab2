@@ -6,4 +6,5 @@ optoIn-2-0=ON
 optoIn-2-1=OFF
 optoIn-3-0=ON
 optoIn-3-1=OFF
--=NULL
+-=NP
+NULL=NP

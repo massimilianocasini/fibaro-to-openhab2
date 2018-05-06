@@ -1,19 +1,50 @@
 Group   influxdb
 
 
-Number WallPlug1_PT_meterKwh "Assorbimento totale [%.1f KWh]" <energy> (influxdb)      {channel="zwave:device:2825f7e5:node3:meter_kwh"}
-Number WallPlug1_PT_sensorPower "Potenza impegnata [%.1f W]" <energy> (influxdb)       {channel="zwave:device:2825f7e5:node3:sensor_power"}
-Switch WallPlug1_PT_switchBinary "Stato presa" <switch>                                           {channel="zwave:device:2825f7e5:node3:switch_binary"}
+Number FGWP102_03_meterKwh "Assorbimento totale [%.1f KWh]" <energy> (influxdb)      {channel="zwave:device:2825f7e5:node3:meter_kwh"}
+Number FGWP102_03_sensorPower "Potenza impegnata [%.1f W]" <energy> (influxdb)       {channel="zwave:device:2825f7e5:node3:sensor_power"}
+Switch FGWP102_03_switchBinary "Stato presa" <switch>                                {channel="zwave:device:2825f7e5:node3:switch_binary"}
 
-Number MotionSensor1_PT_sensorTemperature "Temperatura M[%.1f °C]" <temperature> (influxdb,avgTemperatura)  {channel="zwave:device:2825f7e5:node10:sensor_temperature"}
-Number MotionSensor1_PT_sensorLuminance "Luminosità [%.1f]"      <rgb> (influxdb)           {channel="zwave:device:2825f7e5:node10:sensor_luminance"}
-Switch MotionSensor1_PT_alarmMotion "Rilevatore [MAP(zwave_motion.map):%s]" <motion>        {channel="zwave:device:2825f7e5:node10:alarm_motion"}
-Number MotionSensor1_PT_sensorBattery "Stato batteria [%d %%]" <battery> {channel="zwave:device:2825f7e5:node10:battery-level"}
+Number FGMS001_10_sensor_temperature "Temperatura [%.1f °C]" <temperature> (influxdb,avgTemperatura)  {channel="zwave:device:2825f7e5:node10:sensor_temperature"}
+Number FGMS001_10_sensor_luminance "Luminosità [%.1f]"      <rgb> (influxdb)                          {channel="zwave:device:2825f7e5:node10:sensor_luminance"}
+Switch FGMS001_10_alarm_motion "IR [MAP(ir.map):%s]" <motion>                                      {channel="zwave:device:2825f7e5:node10:alarm_motion"}
+Number FGMS001_10_battery-level "Stato batteria [%d %%]" <battery>                                 {channel="zwave:device:2825f7e5:node10:battery-level"}
 
-Switch EnergyDSW1_PT_switch_binary "Switch esterno" (influxdb)          {channel="zwave:device:2825f7e5:node11:switch_binary"}
-Number EnergyDSW1_PT_sensor_power "Sensore di potenza [%.1f]" (influxdb) {channel="zwave:device:2825f7e5:node11:sensor_power"}
-Number EnergyDSW1_PT_meter_voltage "Tensione [%.1f V]" (influxdb) {channel="zwave:device:2825f7e5:node11:meter_voltage"}
-Number EnergyDSW1_PT_powerfactor "Sfasamento [%.1f ]" (influxdb) {channel="zwave:device:2825f7e5:node11:meter_powerfactor"}
-Number EnergyDSW1_PT_meter_current "Corrente assorbita [%.1f A]" (influxdb) {channel="zwave:device:2825f7e5:node11:meter_current"}
-Number EnergyDSW1_PT_meter_watts "Potenza istantanea [%.1f W]" (influxdb) {channel="zwave:device:2825f7e5:node11:meter_watts"}
-Number EnergyDSW1_PT_meter_kwh "Energia consumata [%.1f KWh]" (influxdb)        {channel="zwave:device:2825f7e5:node11:meter_kwh"}
+Switch WPS104_11_switch_binary "Switch esterno" (influxdb)          {channel="zwave:device:2825f7e5:node11:switch_binary"}
+Number WPS104_11_sensor_power "Sensore di potenza [%.1f]" <energy> (influxdb) {channel="zwave:device:2825f7e5:node11:sensor_power"}
+Number WPS104_11_meter_voltage "Tensione [%.1f V]" <energy> (influxdb) {channel="zwave:device:2825f7e5:node11:meter_voltage"}
+Number WPS104_11_powerfactor "Sfasamento [%.1f ]" <energy> (influxdb) {channel="zwave:device:2825f7e5:node11:meter_powerfactor"}
+Number WPS104_11_meter_current "Corrente assorbita [%.1f A]" <energy> (influxdb) {channel="zwave:device:2825f7e5:node11:meter_current"}
+Number WPS104_11_meter_watts "Potenza istantanea [%.1f W]" <energy> (influxdb) {channel="zwave:device:2825f7e5:node11:meter_watts"}
+Number WPS104_11_meter_kwh "Energia consumata [%.1f KWh]" <energy> (influxdb)        {channel="zwave:device:2825f7e5:node11:meter_kwh"}
+//Portone
+Switch FGS222_13_0 "" {channel="zwave:device:2825f7e5:node13:switch_binary"}
+Switch FGS222_13_1 "Luce Portoncino" {channel="zwave:device:2825f7e5:node13:switch_binary1"}
+Switch FGS222_13_2 "Luce Cancelletto" {channel="zwave:device:2825f7e5:node13:switch_binary2"}
+//Garage
+Switch FGS222_15_0 "" {channel="zwave:device:2825f7e5:node15:switch_binary"}
+Switch FGS222_15_1 "Apri Serranda" {channel="zwave:device:2825f7e5:node15:switch_binary1"}
+Switch FGS222_15_2 "Luce Garage" {channel="zwave:device:2825f7e5:node15:switch_binary2"}
+
+//Garage
+Number FGBS001_16_0 "" {channel="zwave:device:2825f7e5:node16:scene_number"}
+Switch FGBS001_16_1 "Stato serranda [MAP(serrande.map):%s]" <motion> {channel="zwave:device:2825f7e5:node16:sensor_binary1"}
+Switch FGBS001_16_2 "" <motion> {channel="zwave:device:2825f7e5:node16:alarm_general1"}
+Switch FGBS001_16_3 "IR [MAP(ir.map):%s]" <motion> {channel="zwave:device:2825f7e5:node16:sensor_binary2"}
+Switch FGBS001_16_4 "" <motion> {channel="zwave:device:2825f7e5:node16:alarm_general2"}
+Number FGBS001_16_5 "Temperatura [%.1f °C]" (influxdb) {channel="zwave:device:2825f7e5:node16:sensor_temperature3"}
+//Camera Alice
+Number FGBS001_17_0 "" {channel="zwave:device:2825f7e5:node16:scene_number"}
+Switch FGBS001_17_1 "IR [MAP(ir.map):%s]" <motion> {channel="zwave:device:2825f7e5:node17:sensor_binary1"}
+Switch FGBS001_17_2 "" <motion> {channel="zwave:device:2825f7e5:node17:alarm_general1"}
+Switch FGBS001_17_3 "Tamper [MAP(tamper.map):%s]" <motion> {channel="zwave:device:2825f7e5:node17:sensor_binary2"}
+Switch FGBS001_17_4 "" <motion> {channel="zwave:device:2825f7e5:node17:alarm_general2"}
+Number FGBS001_17_5 "Temperatura [%.1f °C]" (influxdb,avgTemperatura) {channel="zwave:device:2825f7e5:node17:sensor_temperature3"}
+//Camera Alice
+Switch FGS222_18_0 "" {channel="zwave:device:2825f7e5:node18:switch_binary"}
+Switch FGS222_18_1 "Luce centrale" {channel="zwave:device:2825f7e5:node18:switch_binary1"}
+Switch FGS222_18_2 "Lumetti" {channel="zwave:device:2825f7e5:node18:switch_binary2"}
+//Camera Alice
+Switch FGS222_19_0 "" {channel="zwave:device:2825f7e5:node19:switch_binary"}
+Switch FGS222_19_1 "Luce centrale" {channel="zwave:device:2825f7e5:node19:switch_binary1"}
+Switch FGS222_19_2 "Lumetti" {channel="zwave:device:2825f7e5:node19:switch_binary2"}

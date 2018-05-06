@@ -1,0 +1,23 @@
+rule "Accendi luci 30min prima del tramonto e spegni al sorgere"
+when
+    Item SunElevation changed
+then
+    if(now.getHourOfDay > 12 && SunElevation.state < 5 && FGS222_13_1.state != ON)
+    {
+       FGS222_13_1.sendCommand(ON)
+    }
+    if(now.getHourOfDay < 12 && SunElevation.state > 0 && FGS222_13_1.state != OFF)
+    {
+       FGS222_13_1.sendCommand(OFF)
+    }
+end
+
+rule "Accendi luce Garage dopo il tramonto"
+when
+    Item FGBS001_16_1 changed from OFF to ON
+then
+    if(now.getHourOfDay > 12 && SunElevation.state < 5 && FGS222_15_2.state != ON)
+    {
+       FGS222_15_2.sendCommand(ON)
+    }
+end 
