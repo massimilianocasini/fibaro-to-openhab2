@@ -4,10 +4,10 @@ String observationLocation "Location [%s]" <movecontrol> {channel="weatherunderg
 String station "Station [%s]" {channel="weatherunderground:weather:local:current#stationId"}
 String currentCondition "Condizione attuale [MAP(it.map):%s]" {channel="weatherunderground:weather:local:current#conditions"}
 Image iconCurrentCondition "Icon" {channel="weatherunderground:weather:local:current#icon"}
-Number currentTemperature "Temperatura corrente [%.1f °C]" <temperature> (influxdb) {channel="weatherunderground:weather:local:current#temperature"}
-Number currentFeelTemp "Temperatura percepita [%.1f °C]" <temperature> (influxdb) {channel="weatherunderground:weather:local:current#feelingTemperature"} 
-Number currentRelativeHumidity "Umidità relativa" <humidity> (influxdb) {channel="weatherunderground:weather:local:current#relativeHumidity"} 
-Number currentPressure "Pressione [%.1f hPa]" <pressure> (influxdb) {channel="weatherunderground:weather:local:current#pressure"}
+Number currentTemperature "Temperatura corrente [%.1f °C]" <temperature> (Influxdb) {channel="weatherunderground:weather:local:current#temperature"}
+Number currentFeelTemp "Temperatura percepita [%.1f °C]" <temperature> (Influxdb) {channel="weatherunderground:weather:local:current#feelingTemperature"} 
+Number currentRelativeHumidity "Umidità relativa" <humidity> (Influxdb) {channel="weatherunderground:weather:local:current#relativeHumidity"} 
+Number currentPressure "Pressione [%.1f hPa]" <pressure> (Influxdb) {channel="weatherunderground:weather:local:current#pressure"}
 
 String forecastTodayCondition "Previsioni oggi [MAP(it.map):%s]" {channel="weatherunderground:weather:local:forecastToday#conditions"}
 Image iconforecastTodayCondition "Icon" {channel="weatherunderground:weather:local:current#icon"}

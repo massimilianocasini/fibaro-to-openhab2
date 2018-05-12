@@ -10,13 +10,13 @@ sitemap Casatenovo label="Benvenuto a Casa"
 	//{
 		//	Text label=Studio icon=office
 	{
-		Text item=avgTemperatura valuecolor=[>25="orange",>15="green",>5="orange",<=5="blue"] icon="temperature"
+		Group item=gAvgTemperatura valuecolor=[>25="orange",>15="green",>5="orange",<=5="blue"] icon="temperature"
 		Text item=prodino_umid icon="humidity"
 		Text item=FGMS001_10_sensor_luminance icon="rgb"
 		Text item=prodino0_in1 
 		Switch item=prodino0_out1 mappings=[ON="INS", OFF="DIS"]
-		Text item=FGMS001_10_alarm_motion icon="motion"
-		Text item=WPS104_11_meter_voltage icon="energy"
+		Group item=gMotion valuecolor=[ON="red", OFF="green"] icon="motion"
+		Text item=WPS104_11_meter_voltage icon="energy" valuecolor=[>226="green",>220="orange",<220="red"]	
 		Text item=WPS104_11_meter_watts icon="battery"
 	}
 			
@@ -48,7 +48,7 @@ sitemap Casatenovo label="Benvenuto a Casa"
 		}
 		Text label="Corridoio" icon="corridor"
 		{
-			Text item=FGWP102_03_sensorPower icon="energy"
+			Slider item=FGD211_20_switch_dimmer  icon="light" switchSupport
 		}
 		Text label="Studio" icon="office"
 		{
@@ -60,37 +60,11 @@ sitemap Casatenovo label="Benvenuto a Casa"
 	}
 	Frame label="Ambienti"
 	{
-		Text label="Giardino" icon="garden"
-			{
-				Text item=FGWP102_03_sensorPower icon="energy"
-			}
-				Text label="Portone" icon="cellar"
-			{
-				Switch item=FGS222_13_switch_binary1 icon="light"
-				Switch item=FGS222_13_switch_binary2 icon="light"
-			}
-		Text label="Garage" icon="garage"
-			{
-				Switch item=FGS222_15_switch_binary1 icon="blinds" mappings=[TOGGLE="Premi"]
-				Switch item=FGS222_15_switch_binary2 icon="light" mappings=[TOGGLE="Premi"]
-				Text item=FGBS001_16_sensor_binary1 icon="blinds"
-				Text item=FGBS001_16_sensor_binary2 icon="motion"
-				Text item=FGBS001_16_sensor_temperature3 icon="temperature"
-			}
-		Text label="Locale tecnico" icon="settings"
-			{
-				Text label="Energia" icon="energy"
-				{
-					Text item=WPS104_11_meter_current icon="battery"
-					Text item=WPS104_11_meter_kwh
-					Text item=WPS104_11_meter_voltage
-					Text item=WPS104_11_meter_watts
-					Text item=WPS104_11_powerfactor
-					Text item=WPS104_11_sensor_power
-					Switch item=WPS104_11_switch_binary
-				}
-	
-			}
+		Group item=gGiardino
+		Group item=gPortone	
+		Group item=gGarage
+		
+		Group item=gLocaleTecnico
 	}
 
 	Frame label="Dispositivi"
