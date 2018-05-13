@@ -1,0 +1,4 @@
+{
+    "openhab.host": "ohasis",
+    "openhab.karafCommand": "ssh openhab@ohasis -p 8101"
+}

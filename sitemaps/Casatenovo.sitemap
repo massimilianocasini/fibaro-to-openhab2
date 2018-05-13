@@ -7,8 +7,6 @@ sitemap Casatenovo label="Benvenuto a Casa"
 	}
 
 	Frame label="Stato generale" 
-	//{
-		//	Text label=Studio icon=office
 	{
 		Group item=gAvgTemperatura valuecolor=[>25="orange",>15="green",>5="orange",<=5="blue"] icon="temperature"
 		Text item=prodino_umid icon="humidity"
@@ -35,14 +33,15 @@ sitemap Casatenovo label="Benvenuto a Casa"
 
 		Text label="Camera Alice" icon="bedroom"
 		{
-			Switch item=FGS222_18_switch_binary1 icon="light" mappings=[TOGGLE="Premi"]
-			Switch item=FGS222_18_switch_binary2 icon="light" mappings=[TOGGLE="Premi"]
-			Text item=FGBS001_17_sensor_binary1 icon="motion"
-			Text item=FGBS001_17_sensor_binary2 icon="shield"
+			Switch item=FGS222_18_switch_binary1 mappings=[TOGGLE="Premi"]
+			Switch item=FGS222_18_switch_binary2 mappings=[TOGGLE="Premi"]
+			Text item=FGBS001_17_sensor_binary1
+			Text item=FGBS001_17_sensor_binary2
 			Text item=FGBS001_17_sensor_temperature3 icon="temperature"
 		}
 		Text label="Sala da pranzo" icon="player"
 		{
+			Switch item=FGS221_22_switch_binary2 mappings=[ON="ON", OFF="OFF"]
 			Text item=prodino_temp
 			Text item=prodino_umid
 		}
@@ -58,11 +57,25 @@ sitemap Casatenovo label="Benvenuto a Casa"
 		}
 	
 	}
+	
 	Frame label="Ambienti"
 	{
-		Group item=gGiardino
-		Group item=gPortone	
-		Group item=gGarage
+		Text label="Giardino" icon="garden"
+		{
+			Slider item=FGRM222_21_blinds_control
+		}
+		Text label="Portone" icon="cellar"
+		{
+			Switch item=FGS222_13_switch_binary1 mappings=[ON=ACCESO, OFF=SPENTO]
+		}	
+		Text label="Garage" icon="garage"
+		{
+			Switch item=FGS222_15_switch_binary1 mappings=[TOGGLE="Premi"]
+			Switch item=FGS222_15_switch_binary2 mappings=[TOGGLE="Premi"]
+			Text item=FGBS001_16_sensor_binary1
+			Text item=FGBS001_16_sensor_binary2
+			Text item=FGBS001_16_sensor_temperature3
+		}
 		
 		Group item=gLocaleTecnico
 	}
@@ -117,7 +130,7 @@ sitemap Casatenovo label="Benvenuto a Casa"
 			Switch item=FGS222_19_switch_binary1
 			Switch item=FGS222_19_switch_binary2
 		}
-		Text label="Universal Binary Sensor, Garage" icon="cellar"
+		Text label="Universal Binary Sensor, Garage" icon="garage"
 		{
 			Switch item=FGBS001_16_alarm_general1
 			Switch item=FGBS001_16_alarm_general2
@@ -135,6 +148,17 @@ sitemap Casatenovo label="Benvenuto a Casa"
 			Text item=FGBS001_17_sensor_binary2
 			Text item=FGBS001_17_sensor_temperature3
 		}
+		Text label="Roller Shutter, Pergotenda" icon="terrace"
+		{
+			Switch item=FGRM222_21_switch_binary 
+			Default item=FGRM222_21_blinds_control
+			Text item=FGRM222_21_blinds_scene_number
+			Text item=FGRM222_21_blinds_sensor_power
+			Text item=FGRM222_21_blinds_meter_watts
+			Text item=FGRM222_21_blinds_meter_kwh
+			
+		}
+
 		Text label="Prodino WIFI MQTT, Sala da pranzo" icon="cellar"
 		{
 			Switch item=prodino0_in1
@@ -171,8 +195,8 @@ sitemap Casatenovo label="Benvenuto a Casa"
 			Text item=forecastTimeTomorrow
 			Text item=forecastTomorrowCondition
 			Text item=forecastTomorrowPrecipitation
-			Text item=forecastTomorrowMaxTemperature
 			Text item=forecastTomorrowMinTemperature
+			Text item=forecastTomorrowMaxTemperature
 		}
 	}
 Frame label="Astro"

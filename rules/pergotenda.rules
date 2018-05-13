@@ -1,0 +1,17 @@
+rule "Chiudi tenda in caso di pioggia"
+when
+    Item currentCondition received update
+then
+    if(currentCondition.state==Rain && FGRM222_21_blinds_control.state != 0)
+    {
+       FGRM222_21_blinds_control.sendCommand(UP)
+       sendTelegram("bot1", "Pergotenda chiusa per pioggia!")
+       logInfo("Pergotenda chiusa per pioggia")
+    }
+    if(currentCondition.state==Thunderstorm && FGRM222_21_blinds_control.state != 0)
+    {
+       FGRM222_21_blinds_control.sendCommand(UP)
+       sendTelegram("bot1", "Pergotenda chiusa per temporale!")
+       logInfo("Pergotenda chiusa per temporale")
+    }
+end
