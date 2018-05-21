@@ -11,7 +11,7 @@ Group gAntifurto (gAll)
 Group gCucina (gAll)
 Group gGiardino "Giardino" <garden> (gAll)
 Group gSalone "Salone" (gAll)
-Group:Number:AVG gAvgTemperatura 	"Temperatura media [%.1f °C]"
+Group:Number:AVG gAvgTemperatura "Temperatura media [%.1f °C]" (gInfluxdb)
 Group:Switch:OR(ON, OFF) gMotion "Stato presenza [MAP(ir.map):%s]"
 
 //FGWP102 Metered WgAll Plug Switch, Cucina

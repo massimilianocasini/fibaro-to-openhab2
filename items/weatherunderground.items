@@ -13,8 +13,8 @@ String forecastTodayCondition "Previsioni oggi [MAP(it.map):%s]" {channel="weath
 Image iconforecastTodayCondition "Icon" {channel="weatherunderground:weather:local:current#icon"}
 Number forecastTodayMaxTemperature "Massima oggi [%.1f °C]"  <temperature> {channel="weatherunderground:weather:local:forecastToday#maxTemperature"}
 Number forecastTodayMinTemperature "Massima oggi [%.1f °C]" <temperature> {channel="weatherunderground:weather:local:forecastToday#minTemperature"}
-Number TodayProbaPrecipitation "Probabilità di pioggia oggi [%.0f %%]" <rain> {channel="weatherunderground:weather:local:forecastToday#probaPrecipitation"}
-Number TodayPrecipitation "Precipitazioni oggi [%.1f mm]" <rain> {channel="weatherunderground:weather:local:forecastToday#precipitationDay"}
+Number todayProbaPrecipitation "Probabilità di pioggia oggi [%.0f %%]" <rain> {channel="weatherunderground:weather:local:forecastToday#probaPrecipitation"}
+Number todayPrecipitation "Precipitazioni oggi [%.1f mm]" <rain> {channel="weatherunderground:weather:local:forecastToday#precipitationDay"}
 
 
 DateTime forecastTimeTomorrow "Previsioni del [%1$td.%1$tm.%1$tY %1$tH:%1$tM]" <clock>  {channel="weatherunderground:weather:local:forecastTomorrow#forecastTime"}

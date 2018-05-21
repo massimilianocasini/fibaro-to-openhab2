@@ -11,7 +11,7 @@ Strategies
 Items
 {
 
-	Influxdb* : strategy =  everyMinute, everyChange, restoreOnStartup
+	gInfluxdb* : strategy =  everyMinute, everyChange, restoreOnStartup
 	
 	avgTemperatura : strategy = everyMinute, everyChange, restoreOnStartup
 

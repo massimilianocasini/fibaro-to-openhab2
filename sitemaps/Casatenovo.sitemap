@@ -80,7 +80,41 @@ sitemap Casatenovo label="Benvenuto a Casa"
 		Group item=gLocaleTecnico
 	}
 
-	Frame label="Dispositivi"
+	
+	
+	Frame label="Che tempo che fa"
+	{
+		Text label="Oggi" icon="sun_clouds"
+		{
+			Text item=observationTime
+			Text item=currentCondition
+			Text item=currentTemperature
+			Text item=currentRelativeHumidity
+			Text item=currentPressure
+			Text item=todayProbaPrecipitation
+			Text item=forecastTodayCondition
+			Text item=forecastTodayMaxTemperature
+			Text item=forecastTodayMinTemperature
+			Text item=observationLocation
+			Text item=station
+		}
+		Text label="Domani" icon="sun_clouds"
+		{
+			Text item=forecastTimeTomorrow
+			Text item=forecastTomorrowCondition
+			Text item=forecastTomorrowPrecipitation
+			Text item=forecastTomorrowMinTemperature
+			Text item=forecastTomorrowMaxTemperature
+		}
+	}
+Frame label="Astro"
+	{
+		
+			Text item=Sunrise_Time
+			Text item=Sunset_Time
+			Text item=SunElevation
+	}
+Frame label="Dispositivi"
 	{
 		Text label="MotionSensor" icon="cellar"
 		{
@@ -172,38 +206,5 @@ sitemap Casatenovo label="Benvenuto a Casa"
 			Text item=prodino_temp
 			Text item=prodino_umid
 		}
-	}	
-	
-	Frame label="Che tempo che fa"
-	{
-		Text label="Oggi" icon="sun_clouds"
-		{
-			Text item=observationTime
-			Text item=currentCondition
-			Text item=currentTemperature
-			Text item=currentRelativeHumidity
-			Text item=currentPressure
-			Text item=TodayProbaPrecipitation
-			Text item=forecastTodayCondition
-			Text item=forecastTodayMaxTemperature
-			Text item=forecastTodayMinTemperature
-			Text item=observationLocation
-			Text item=station
-		}
-		Text label="Domani" icon="sun_clouds"
-		{
-			Text item=forecastTimeTomorrow
-			Text item=forecastTomorrowCondition
-			Text item=forecastTomorrowPrecipitation
-			Text item=forecastTomorrowMinTemperature
-			Text item=forecastTomorrowMaxTemperature
-		}
-	}
-Frame label="Astro"
-	{
-		
-			Text item=Sunrise_Time
-			Text item=Sunset_Time
-			Text item=SunElevation
 	}	
 }
