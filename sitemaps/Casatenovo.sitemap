@@ -4,6 +4,7 @@ sitemap Casatenovo label="Benvenuto a Casa"
 	Frame label=Oggi
 	{
 		Text item=Date icon="calendar"
+		Text item=currentCondition
 	}
 
 	Frame label="Stato generale" 
@@ -77,7 +78,15 @@ sitemap Casatenovo label="Benvenuto a Casa"
 			Text item=FGBS001_16_sensor_temperature3
 		}
 		
-		Group item=gLocaleTecnico
+		Text label="Locale tecnico" icon="settings"
+		{
+			Switch item=FGS221_23_switch_binary1 mappings=[ON="Accesa", OFF="Spenta"]
+			Text item=WPS104_11_meter_voltage
+			Text item=WPS104_11_meter_watts
+			Text item=WPS104_11_meter_current
+			Text item=WPS104_11_powerfactor
+			Text item=WPS104_11_meter_kwh
+		}
 	}
 
 	

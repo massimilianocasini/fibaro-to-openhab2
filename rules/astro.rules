@@ -7,7 +7,7 @@ then
        FGS222_13_switch_binary1.sendCommand(ON)
        sendTelegram("bot1", "Luce portone ACCESA!")
       
-       logInfo("Luce accesa")
+//       logInfo("Luce accesa")
     }
     if(now.getHourOfDay < 12 && SunElevation.state > 0 && FGS222_13_switch_binary1.state != OFF)
     {
@@ -33,7 +33,7 @@ then
     }
 end
 
-rule "Accendi luce Garage dopo il tramonto"
+rule "Accendi luce Garage dopo il tramonto Contatto"
 when
     Item FGBS001_16_sensor_binary1 changed from OFF to ON
     
@@ -43,4 +43,3 @@ then
        FGS222_15_switch_binary2.sendCommand(ON)
     }
 end 
-

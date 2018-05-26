@@ -90,7 +90,7 @@ Switch FGS221_22_switch_binary2 "TV, Ampli" <cinema> (gAll, gSalone) {channel="z
 
 //FGS221 Double Relay Switch 2x1.5kW, Caldaia
 Switch FGS221_23_switch_binary ""  (gAll) {channel="zwave:device:2825f7e5:node23:switch_binary"}
-Switch FGS221_23_switch_binary1 "" (gAll, gLocaleTecnico) {channel="zwave:device:2825f7e5:node23:switch_binary1"}
+Switch FGS221_23_switch_binary1 "Caldaia" <climate> (gAll, gLocaleTecnico) {channel="zwave:device:2825f7e5:node23:switch_binary1"}
 Switch FGS221_23_switch_binary2 "" (gAll, gLocaleTecnico) {channel="zwave:device:2825f7e5:node23:switch_binary2"}
 
 
