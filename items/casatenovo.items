@@ -17,12 +17,12 @@ Group:Switch:OR(ON, OFF) gMotion "Stato presenza [MAP(ir.map):%s]"
 //FGWP102 Metered WgAll Plug Switch, Cucina
 Number FGWP102_03_meterKwh "Assorbimento totale [%.1f KWh]" <energy> (gInfluxdb)      {channel="zwave:device:2825f7e5:node3:meter_kwh"}
 Number FGWP102_03_sensorPower "Potenza impegnata [%.1f W]" <energy> (gInfluxdb)       {channel="zwave:device:2825f7e5:node3:sensor_power"}
-Switch FGWP102_03_switchBinary "Stato presa" <switch>                                {channel="zwave:device:2825f7e5:node3:switch_binary"}
+Switch FGWP102_03_switchBinary "Stato presa" <switch>     ["Switchable"]                           {channel="zwave:device:2825f7e5:node3:switch_binary"}
 
 //FGMS001 Motion Sensor, Studio
-Number FGMS001_10_sensor_temperature "Studio Temperatura [%.1f °C]" <temperature> (gAll, gStudio, gInfluxdb, gAvgTemperatura)  {channel="zwave:device:2825f7e5:node10:sensor_temperature"}
+Number FGMS001_10_sensor_temperature "Studio Temperatura [%.1f °C]" <temperature>  (gAll, gStudio, gInfluxdb, gAvgTemperatura) ["CurrentTemperature"] {channel="zwave:device:2825f7e5:node10:sensor_temperature"}
 Number FGMS001_10_sensor_luminance "Luminosità [%.1f]"      <rgb> (gAll, gStudio, gInfluxdb)                          {channel="zwave:device:2825f7e5:node10:sensor_luminance"}
-Switch FGMS001_10_alarm_motion "Studio [MAP(ir.map):%s]" <motion>     (gAll, gStudio, gMotion)                                 {channel="zwave:device:2825f7e5:node10:alarm_motion"}
+Switch FGMS001_10_alarm_motion "Studio [MAP(ir.map):%s]" <motion>     (gAll, gStudio, gMotion)                          {channel="zwave:device:2825f7e5:node10:alarm_motion"}
 Number FGMS001_10_battery "Studio Stato batteria [%d %%]" <battery>      (gAll, gStudio)                           {channel="zwave:device:2825f7e5:node10:battery-level"}
 
 //Energy Driven Switch C, Locale Tecnico
@@ -36,21 +36,21 @@ Number WPS104_11_meter_kwh "Energia consumata [%.1f KWh]" <energy> (gAll, gLocal
 
 //FGS222 Double relay Switch 2x1.5kW, Portone
 Switch FGS222_13_switch_binary "" (gAll, gPortone) {channel="zwave:device:2825f7e5:node13:switch_binary"}
-Switch FGS222_13_switch_binary1 "Luce Portone" <light> (gAll, gPortone) {channel="zwave:device:2825f7e5:node13:switch_binary1"}
+Switch FGS222_13_switch_binary1 "Luce Portone" <light> (gAll, gPortone)  ["Lighting"] {channel="zwave:device:2825f7e5:node13:switch_binary1"}
 Switch FGS222_13_switch_binary2 "Luce Cancelletto" <light> (gAll, gPortone) {channel="zwave:device:2825f7e5:node13:switch_binary2"}
 
 //FGS222 Double relay Switch 2x1.5kW, Garage
 Switch FGS222_15_switch_binary "" (gAll, gGarage) {channel="zwave:device:2825f7e5:node15:switch_binary"}
-Switch FGS222_15_switch_binary1 "Apri Serranda" <blinds> (gAll, gGarage)  {channel="zwave:device:2825f7e5:node15:switch_binary1"}
-Switch FGS222_15_switch_binary2 "Luce Garage" <light> (gAll, gGarage) {channel="zwave:device:2825f7e5:node15:switch_binary2"}
-
+Switch FGS222_15_switch_binary1 "Apri Serranda" <blinds> (gAll, gGarage)  ["Switchable"] {channel="zwave:device:2825f7e5:node15:switch_binary1"} 
+Switch FGS222_15_switch_binary2 "Luce Garage" <light> (gAll, gGarage)  ["Lighting"] {channel="zwave:device:2825f7e5:node15:switch_binary2"}
+ 
 //FGBS001 Universal Binary Sensor, Garage
 Number FGBS001_16_scene_number "" (gAll, gGarage) {channel="zwave:device:2825f7e5:node16:scene_number"}
 Switch FGBS001_16_sensor_binary1 "Stato serranda [MAP(serrande.map):%s]"  <blinds>  (gAll, gGarage) {channel="zwave:device:2825f7e5:node16:sensor_binary1"}
 Switch FGBS001_16_alarm_general1 "" (gAll) {channel="zwave:device:2825f7e5:node16:alarm_general1"}
 Switch FGBS001_16_sensor_binary2 "IR [MAP(ir.map):%s]" <motion> (gAll, gGarage) {channel="zwave:device:2825f7e5:node16:sensor_binary2"}
 Switch FGBS001_16_alarm_general2 ""  (gAll) {channel="zwave:device:2825f7e5:node16:alarm_general2"}
-Number FGBS001_16_sensor_temperature3 "Garage Temp. [ %.1f °C]" <temperature>  (gAll, gGarage, gInfluxdb) {channel="zwave:device:2825f7e5:node16:sensor_temperature3"}
+Number FGBS001_16_sensor_temperature3 "Garage Temperatura [%.1f °C]" <temperature>  (gAll, gGarage, gInfluxdb) ["CurrentTemperature"] {channel="zwave:device:2825f7e5:node16:sensor_temperature3"}
 
 //FGBS001 Universal Binary Sensor, Camera Alice
 Number FGBS001_17_scene_number "" (gAll) {channel="zwave:device:2825f7e5:node16:scene_number"}
@@ -58,11 +58,11 @@ Switch FGBS001_17_sensor_binary1 "Camera Alice [MAP(ir.map):%s]" <motion> (gAll,
 Switch FGBS001_17_alarm_general1 "" {channel="zwave:device:2825f7e5:node17:alarm_general1"}
 Switch FGBS001_17_sensor_binary2 "Tamper [MAP(tamper.map):%s]" <shield> (gAll, gCameraAlice) {channel="zwave:device:2825f7e5:node17:sensor_binary2"}
 Switch FGBS001_17_alarm_general2 "" {channel="zwave:device:2825f7e5:node17:alarm_general2"}
-Number FGBS001_17_sensor_temperature3 "Camera Alice Temp. [%.1f °C]" <temperature> (gAll, gCameraAlice, gInfluxdb, gAvgTemperatura) {channel="zwave:device:2825f7e5:node17:sensor_temperature3"}
+Number FGBS001_17_sensor_temperature3 "Camera Alice Temperatura [%.1f °C]" <temperature> (gAll, gCameraAlice, gInfluxdb, gAvgTemperatura) ["CurrentTemperature"] {channel="zwave:device:2825f7e5:node17:sensor_temperature3"}
 
 //FGS222 Double relay Switch 2x1.5kW, Camera Alice porta
 Switch FGS222_18_switch_binary "" (gAll) {channel="zwave:device:2825f7e5:node18:switch_binary"}
-Switch FGS222_18_switch_binary1 "Luce centrale" <light> (gAll, gCameraAlice) {channel="zwave:device:2825f7e5:node18:switch_binary1"}
+Switch FGS222_18_switch_binary1 "Luce centrale" <light> (gAll, gCameraAlice) ["Lighting"] {channel="zwave:device:2825f7e5:node18:switch_binary1"}
 Switch FGS222_18_switch_binary2 "Lumetti" <light> (gAll, gCameraAlice) {channel="zwave:device:2825f7e5:node18:switch_binary2"}
 
 //FGS222 Double relay Switch 2x1.5kW Camera Alice lumetti
@@ -71,13 +71,13 @@ Switch FGS222_19_switch_binary1 "Luce centrale" (gAll, gCameraAlice) {channel="z
 Switch FGS222_19_switch_binary2 "Lumetti" (gAll, gCameraAlice) {channel="zwave:device:2825f7e5:node19:switch_binary2"}
 
 //GD211 Universal Dimmer 500W, Corridoio
-Dimmer FGD211_20_switch_dimmer  "Dimmer Corridoio [%d %%]" (gAll, gCorridoio) {channel="zwave:device:2825f7e5:node20:switch_dimmer"}
+Dimmer FGD211_20_switch_dimmer  "Luce Corridoio [%d %%]" (gAll, gCorridoio)  ["Lighting"] {channel="zwave:device:2825f7e5:node20:switch_dimmer"}
 Number FGD211_20_scene_number  "" (gAll) {channel="zwave:device:2825f7e5:node20:scene_number"}
 Number FGD211_20_config_decimal_param40  "" (gAll, gCorridoio) {channel="zwave:device:2825f7e5:node20:config_decimal_param40"}
 
 //FGRM222 Roller Shutter, Pergotenda
 Switch FGRM222_21_switch_binary "" (gAll, gGiardino) {channel="zwave:device:2825f7e5:node21:switch_binary"}
-Rollershutter FGRM222_21_blinds_control "Pergotenda [%d %%]" <rollershutter> (gAll, gGiardino) {channel="zwave:device:2825f7e5:node21:blinds_control"}
+Rollershutter FGRM222_21_blinds_control "Pergotenda [%d %%]" <rollershutter> (gAll, gGiardino) ["Switchable"] {channel="zwave:device:2825f7e5:node21:blinds_control"}
 Number FGRM222_21_blinds_scene_number  "" (gAll, gGiardino) {channel="zwave:device:2825f7e5:node21:scene_number"}
 Number FGRM222_21_blinds_sensor_power  "Sensore di potenza" (gAll, gGiardino) {channel="zwave:device:2825f7e5:node21:sensor_power"}
 Number FGRM222_21_blinds_meter_watts  "Potenza istantanea" (gAll, gGiardino) {channel="zwave:device:2825f7e5:node21:meter_watts"}
@@ -86,11 +86,11 @@ Number FGRM222_21_blinds_meter_kwh  "Energia consumata" (gAll, gGiardino) {chann
 //FGS221 Double Relay Switch 2x1.5kW, Salone TV
 Switch FGS221_22_switch_binary ""  (gAll) {channel="zwave:device:2825f7e5:node22:switch_binary"}
 Switch FGS221_22_switch_binary1 "" (gAll, gSalone) {channel="zwave:device:2825f7e5:node22:switch_binary1"}
-Switch FGS221_22_switch_binary2 "TV, Ampli" <cinema> (gAll, gSalone) {channel="zwave:device:2825f7e5:node22:switch_binary2"}
+Switch FGS221_22_switch_binary2 "TV, Ampli" <cinema> (gAll, gSalone) ["Switchable"] {channel="zwave:device:2825f7e5:node22:switch_binary2"}
 
 //FGS221 Double Relay Switch 2x1.5kW, Caldaia
 Switch FGS221_23_switch_binary ""  (gAll) {channel="zwave:device:2825f7e5:node23:switch_binary"}
-Switch FGS221_23_switch_binary1 "Caldaia" <climate> (gAll, gLocaleTecnico) {channel="zwave:device:2825f7e5:node23:switch_binary1"}
+Switch FGS221_23_switch_binary1 "Caldaia" <climate> (gAll, gLocaleTecnico) ["Switchable"] {channel="zwave:device:2825f7e5:node23:switch_binary1"}
 Switch FGS221_23_switch_binary2 "" (gAll, gLocaleTecnico) {channel="zwave:device:2825f7e5:node23:switch_binary2"}
 
 
@@ -100,10 +100,10 @@ Switch prodino0_in2 "In 2 Status [%s]" 	 (gAll, gAntifurto)   {mqtt="<[broker1:/
 Switch prodino0_in3 "In 3 Status [%s]" 	 (gAll, gAntifurto)   {mqtt="<[broker1:/KMP/ProDinoWiFi/nInfo:state:MAP(prodino.map):optoIn-2.*]"}
 Switch prodino0_in4 "In 4 Status [%s]"  (gAll, gAntifurto)	{mqtt="<[broker1:/KMP/ProDinoWiFi/nInfo:state:MAP(prodino.map):optoIn-3.*]"}
 // Switch prodino0_out1 "Key gAntifurto"    <switch>  {mqtt=">[broker1:/KMP/ProDinoWiFi/Cmd:command:ON:rel-0-1], >[broker1:/KMP/ProDinoWiFi/Cmd:command:OFF:rel-0-0], <[broker1:/KMP/ProDinoWiFi/nInfo:state:MAP(prodino.map):optoIn-0.*]"}
-Switch prodino0_out1 "Key Antifurto"    <switch> (gAll, gAntifurto) {mqtt=">[broker1:/KMP/ProDinoWiFi/Cmd:command:ON:rel-0-1], >[broker1:/KMP/ProDinoWiFi/Cmd:command:OFF:rel-0-0]"}
+Switch prodino0_out1 "Key Antifurto"    <switch> (gAll, gAntifurto) ["Switchable"] {mqtt=">[broker1:/KMP/ProDinoWiFi/Cmd:command:ON:rel-0-1], >[broker1:/KMP/ProDinoWiFi/Cmd:command:OFF:rel-0-0]"}
 Switch prodino0_out2 "Out 2"          (gAll, gAntifurto)      {mqtt=">[broker1:/KMP/ProDinoWiFi/Cmd:command:ON:rel-1-1], >[broker1:/KMP/ProDinoWiFi/Cmd:command:OFF:rel-1-0]"}
 Switch prodino0_out3 "Out 3"           (gAll, gAntifurto)     {mqtt=">[broker1:/KMP/ProDinoWiFi/Cmd:command:ON:rel-2-1], >[broker1:/KMP/ProDinoWiFi/Cmd:command:OFF:rel-2-0]"}
 Switch prodino0_out4 "Out 4"           (gAll, gAntifurto)     {mqtt=">[broker1:/KMP/ProDinoWiFi/Cmd:command:ON:rel-3-1], >[broker1:/KMP/ProDinoWiFi/Cmd:command:OFF:rel-3-0]"}
-Number prodino_temp "Salone Temp. [%.1f °C]"  <temperature> (gAll, gAntifurto, gInfluxdb, gAvgTemperatura)  {mqtt="<[broker1:/KMP/ProDinoWiFi/Info/dhtt:state:default]"}
-Number proxy_prodino_temp "Temperatura [%.1f °C]"  <temperature> (gAll, gAntifurto, gInfluxdb)
+Number prodino_temp "Salone Temp. [%.1f °C]"  <temperature> (gAll, gAntifurto, gInfluxdb, gAvgTemperatura) ["CurrentTemperature"] {mqtt="<[broker1:/KMP/ProDinoWiFi/Info/dhtt:state:default]"}
+Number proxy_prodino_temp "Temperatura [%.1f °C]"  <temperature> (gAll, gAntifurto, gInfluxdb) 
 Number prodino_umid "Salone Umidità [%.1f %%]"      <humidity> (gAll, gAntifurto, gInfluxdb)  {mqtt="<[broker1:/KMP/ProDinoWiFi/Info/dhth:state:default]"}

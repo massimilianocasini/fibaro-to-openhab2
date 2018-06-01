@@ -2,31 +2,31 @@ rule "Chiudi tenda in caso di pioggia"
 when
     Item currentCondition received update
 then
-    if((currentCondition.state == "Rain") && (FGRM222_21_blinds_control.state != 100))
+    if((currentCondition.state == "Rain") && (FGRM222_21_blinds_control.state < 98))
     {
        FGRM222_21_blinds_control.sendCommand(DOWN)
        sendTelegram("bot1", "Pergotenda chiusa per pioggia!")
        logInfo("Pergotenda","Pergotenda chiusa per pioggia")
     }
-    if((currentCondition.state == "Thunderstorm") && (FGRM222_21_blinds_control.state != 100))
+    if((currentCondition.state == "Thunderstorm") && (FGRM222_21_blinds_control.state < 98))
     {
        FGRM222_21_blinds_control.sendCommand(DOWN)
        sendTelegram("bot1", "Pergotenda chiusa per temporale!")
        logInfo("Pergotenda","Pergotenda chiusa per temporale")
     }
-    if((currentCondition.state == "Light Rain") && (FGRM222_21_blinds_control.state != 100))
+    if((currentCondition.state == "Light Rain") && (FGRM222_21_blinds_control.state < 98))
     {
        FGRM222_21_blinds_control.sendCommand(DOWN)
        sendTelegram("bot1", "Pergotenda chiusa per leggera pioggia!")
        logInfo("Pergotenda", "Pergotenda chiusa per leggera pioggia")
     }
-    if((currentCondition.state == "Light Thunderstorms and Rain") && (FGRM222_21_blinds_control.state != 100))
+    if((currentCondition.state == "Light Thunderstorms and Rain") && (FGRM222_21_blinds_control.state < 98))
     {
        FGRM222_21_blinds_control.sendCommand(DOWN)
        sendTelegram("bot1", "Pergotenda chiusa per leggero temporale e pioggia!")
        logInfo("Pergotenda", "Pergotenda chiusa per leggero temporale e pioggia!")
      }
-     if((currentCondition.state == "Partly Cloudy") && (FGRM222_21_blinds_control.state != 100))
+     if((currentCondition.state == "Partly Cloudy") && (FGRM222_21_blinds_control.state < 98))
     {
        FGRM222_21_blinds_control.sendCommand(DOWN)
        sendTelegram("bot1", "Pergotenda chiusa per Partly Cloudy!")

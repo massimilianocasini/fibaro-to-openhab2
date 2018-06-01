@@ -13,6 +13,6 @@ Items
 
 	gInfluxdb* : strategy =  everyMinute, everyChange, restoreOnStartup
 	
-	avgTemperatura : strategy = everyMinute, everyChange, restoreOnStartup
+	gAvgTemperatura : strategy = everyMinute, everyChange, restoreOnStartup
 
 }
