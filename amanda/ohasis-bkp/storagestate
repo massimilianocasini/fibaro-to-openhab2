@@ -1,0 +1,12 @@
+$STATE = {
+           'meta' => undef,
+           'drives' => {
+                         '/media/usb//slots/drive3' => {},
+                         '/media/usb/slots/drive2' => {},
+                         '/media/usb/slots/drive3' => {},
+                         '/mnt/nas2/slots/drive4' => {},
+                         '/mnt/nas2/slots/drive2' => {},
+                         '/media/usb//slots/drive2' => {},
+                         '/mnt/nas2/slots/drive3' => {}
+                       }
+         };

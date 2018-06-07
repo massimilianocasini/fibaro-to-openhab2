@@ -1,0 +1,6 @@
+ohasis  /dev/mmcblk0              amraw
+ohasis  /etc/openhab2             user-tar
+ohasis  /var/lib/openhab2         user-tar
+ohasis /usr/share/openhab         user-tar
+ohasis /etc/default               user-tar
+ohasis /etc/amanda/ohasis-dir     user-tar
